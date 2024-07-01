@@ -112,7 +112,6 @@ function restarCantidad(e) {
 
     if (productosAgregados[index].cantidad > 1) {
         productosAgregados[index].cantidad--;
-        actualizarResumenPrecios()
 
     } else {
         productosAgregados.splice(index, 1)
@@ -120,10 +119,11 @@ function restarCantidad(e) {
 
     }
     localStorage.setItem("productos", JSON.stringify(productosAgregados));
-    aparecerCarrito()
-    actualizarCantidadCarrito()
     mostrarResumen()
     actualizarResumen()
+    actualizarResumenPrecios()
+    actualizarCantidadCarrito()
+    aparecerCarrito()
 }
 
 function sumarCantidad(e) {
