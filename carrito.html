@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Galaxy-comerce</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu">
+
+                <nav>
+                    <ul class="navbar__list">
+                        <li><a href="index.html"> Inicio</a></li>
+                        <li><a href="productos.html">Nuestros productos</a></li>
+                        <li><a>Contacto</a></li>
+                        <li><a>Donde esta mi pedido?</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="logo">
+                <div class="logo__img">
+                    <img src="img/logo galaxy shop.jpg">
+                </div>
+                <span class="logo__txt">
+                    <p>Galaxy-comerce </p>
+                </span>
+            </div>
+
+            <div class="carrito">
+                <div class="carrito__icono">
+                    <a href="carrito.html" class="carrt__ico">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+                <div class="carrito__cantidad">
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container__general">
+        <aside class="filtros">
+            <div class="top__menu">
+                <div class="menu__left">
+                    <a href="index.html">
+                        <div class="ico">
+                            <i class="fa-solid fa-house house"></i>
+                        </div>
+                        <div class="logo__filter">
+                            <p>Galaxy_store</p>
+                    </a>
+                </div>
+                </a>
+            </div>
+            <i class="fa-solid fa-caret-right flecha"></i>
+    </div>
+    <div class="menu">
+        <ul class="filtros_lista">
+            <a href="productos.html" class="bton__regresar">
+                <li class="filtro__title" id="extra">
+                    <div class="ico">
+                        <i class="fa-solid fa-arrow-turn-up arrow"></i>
+                    </div>
+
+                    <div class="filter__title__text" id="bton__regresar">
+                        <p id="sinHover">Continuar con la compra </p>
+                    </div>
+                </li>
+            </a>
+            <li class="filer__links" id="todos">
+                <div class="ico">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div class="filter__text">
+                    <p>Carrito</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </aside>
+
+    <main class="general__container">
+        <div class="carrito__container">
+
+        </div>
+        <div class="resumen__compra">
+            <h3>Resumen de compra:</h3>
+
+            <div class="cantidad__productos">
+                <div class="cantidad">
+                    <p>Productos(<span class="cantidad--productos">0</span>) </p>
+                </div>
+                <div class="total__productos">
+                    <span class="cantidad--precio">$0</span>
+                </div>
+            </div>
+            <div class="total__precio">
+                <div class="texto-total">
+                    <p>Total</p>
+                </div>
+                <div class="precio-total">
+                    <span class="precio--final">$0</span>
+                </div>
+            </div>
+
+            <div class="finalizar__compra">
+                <button class="final--compra">
+                    <span class="circle"></span>
+                    <p>Finalizar Compra</p>
+                </button>
+            </div>
+        </div>
+
+    </main>
+    <section class="mensaje__carrito__vacio">
+        <div class="mensaje__carrito__vacio--contenedor">
+            <h1>Lo sentimos, tu carrito esta vacío</h1>
+            <i class="fa-regular fa-face-frown"></i>
+            <div class="volver__comprar">
+                <a href="productos.html">
+                    <button class="carrito--vacio">
+                        <span class="circle"></span>
+                        <p>Agregar productos</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="carrito.js"></script>
+</body>
+
+</html>

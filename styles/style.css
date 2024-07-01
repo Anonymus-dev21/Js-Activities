@@ -1,0 +1,732 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins/Poppins-ExtraLight.ttf) format(truetype);
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins/Poppins-SemiBold.ttf) format(truetype);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../Fonts/Poppins/Poppins-ExtraBold.ttf) format(truetype);
+  font-weight: 900;
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../Fonts/Urbanist/Urbanist-VariableFont_wght.ttf) format(truetype);
+  font-weight: 400;
+}
+*::-moz-selection {
+  background-color: rgb(70, 13, 124);
+  color: rgb(255, 138, 196);
+}
+*::selection {
+  background-color: rgb(70, 13, 124);
+  color: rgb(255, 138, 196);
+}
+
+body {
+  background-color: rgb(1, 9, 37);
+}
+
+header {
+  padding: 15px 0;
+  background-color: rgb(4, 30, 51);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Urbanist";
+}
+
+.navbar__list {
+  display: flex;
+  list-style: none;
+  margin-left: 5px;
+}
+.navbar__list a {
+  text-decoration: none;
+  color: #fafafa;
+}
+.navbar__list li {
+  padding: 0 7px;
+  color: #fafafa;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-80%);
+}
+.logo .logo__img {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+}
+.logo .logo__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.logo .logo__txt {
+  margin-left: 5px;
+}
+.logo .logo__txt p {
+  font-size: 20px;
+  color: #fafafa;
+}
+
+.carrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-65px);
+  font-size: 20px;
+  color: #fafafa;
+}
+.carrito .carrt__ico {
+  color: #fafafa;
+}
+.carrito .carrt__ico:hover {
+  color: #b1afaf;
+}
+.carrito .carrito__cantidad {
+  width: 35px;
+  background-color: blueviolet;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.banner {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+  letter-spacing: 3px;
+}
+.banner .banner__content {
+  width: 50%;
+  text-align: center;
+  line-height: 50px;
+}
+.banner .banner__content h1 {
+  font-size: 50px;
+  color: #fafafa;
+}
+.banner .banner__content p {
+  color: #fafafa;
+  font-size: 20px;
+}
+.banner .btn {
+  overflow: hidden;
+  position: relative;
+  padding: 10px 25px;
+  background-color: blueviolet;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+.banner .btn p {
+  position: relative;
+  font-family: "poppins";
+  color: #fafafa;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 10;
+}
+.banner .btn span {
+  transition-timing-function: cubic-bezier(1, 2);
+  transition-duration: 0.8s;
+  border-radius: 9999px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.btn:hover span {
+  width: 300px;
+  height: 300PX;
+  background-color: rgba(230, 4, 154, 0.781);
+  z-index: 1;
+}
+
+.banner__container {
+  width: 100%;
+  margin-top: 10px;
+  height: 60vh;
+}
+.banner__container .swiper-slide {
+  width: 100%;
+}
+.banner__container .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.banner__container .swiper-button-next,
+.banner__container .swiper-button-prev {
+  color: blueviolet;
+}
+.banner__container span {
+  background-color: blueviolet;
+}
+
+.nose {
+  min-height: 100vh;
+}
+
+.container__general {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.card__container {
+  max-width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Urbanist";
+  gap: 30px;
+}
+.card__container .cards {
+  width: 300px;
+  min-height: 450px;
+  color: #b1afaf;
+  margin: 10px 20px;
+  position: relative;
+  box-shadow: 5px 15px 65px -5px rgb(75, 32, 156);
+  border-radius: 10px;
+  animation: aparecer both;
+  animation-timeline: view();
+  animation-range: cover 2% cover 40%;
+}
+.card__container .cards .card__img {
+  width: 300px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card__container .cards .card__img img {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+}
+.card__container .cards .card__title {
+  margin: 5px;
+}
+.card__container .cards .card__title span {
+  color: #dadada;
+  font-family: "Poppins";
+  text-align: center;
+}
+.card__container .cards .card__description {
+  text-wrap: pretty;
+  padding: 5px 10px;
+}
+.card__container .cards .card__price__and__carrito {
+  display: flex;
+  position: absolute;
+  bottom: 1px;
+  left: 20%;
+  align-items: center;
+}
+.card__container .cards .card__price__and__carrito .price {
+  font-size: 20px;
+  margin-right: 50px;
+}
+.card__container .cards .card__price__and__carrito .add__carrito button {
+  background-color: rgb(1, 9, 37);
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+  margin-left: 50px;
+}
+.card__container .cards .card__price__and__carrito .add__carrito button span {
+  transition-timing-function: cubic-bezier(1, 2);
+  transition-duration: 0.9s;
+  border-radius: 9999px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.card__container .cards .card__price__and__carrito .add__carrito i {
+  color: #fafafa;
+  font-size: 20px;
+}
+.card__container .cards .card__price__and__carrito button:hover span {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(137, 43, 226, 0.781);
+}
+.card__container .cards:hover img {
+  transform: scale(1.1);
+}
+.card__container .cards:hover .card__title {
+  text-decoration: underline;
+}
+
+.filtros {
+  max-width: 850px;
+  height: 100vh;
+  position: sticky;
+  left: 1px;
+  top: 5px;
+  background-color: rgb(25, 10, 68);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins";
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 15px;
+}
+.filtros .top__menu {
+  width: 100%;
+  padding-right: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  align-items: left;
+  margin: 35px 0;
+}
+.filtros .top__menu .menu__left {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #cecece;
+}
+.filtros .top__menu .menu__left a {
+  text-decoration: none;
+  color: #cecece;
+}
+.filtros .top__menu .menu__left a .ico {
+  margin: 5px;
+}
+.filtros .top__menu .menu__left a .ico i {
+  font-size: 25px;
+}
+.filtros .top__menu .menu__left a .logo__filter p {
+  text-decoration: none;
+  font-size: 20px;
+  color: #cecece;
+}
+.filtros .top__menu .flecha {
+  color: violet;
+  display: block;
+  position: absolute;
+  right: -25px;
+  padding: 5px 14px;
+  border-radius: 50%;
+  background-color: rgb(1, 9, 37);
+  font-size: 30px;
+  transform: rotate(180deg);
+}
+.filtros .menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+}
+.filtros .filtros_lista {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+  color: #cecece;
+}
+.filtros .filtros_lista #extra {
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: #cecece;
+  font-weight: 700;
+  cursor: default;
+  margin: 15px 0;
+}
+.filtros .filtros_lista li {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.filtros .filtros_lista li .ico {
+  font-size: 25px;
+  margin: 0 15px;
+}
+.filtros .filtros_lista li .filter__text {
+  font-size: 17px;
+}
+.filtros .filtros_lista li:hover p {
+  text-decoration: underline;
+}
+.filtros .filtros_lista li:hover #sinHover {
+  text-decoration: none;
+}
+
+.active {
+  max-width: 100%;
+  background-color: rgb(1, 9, 37);
+  padding: 5px;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  width: 15px;
+  height: 20px;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 10px 0px rgb(1, 9, 37);
+}
+
+.active::before {
+  content: "";
+  width: 15px;
+  height: 20px;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  border-top-right-radius: 10px;
+  box-shadow: 0px -10px 0px rgb(1, 9, 37);
+}
+
+.close {
+  max-width: 100px;
+}
+.close .top__menu {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close .top__menu .menu__left p {
+  display: none;
+}
+.close .top__menu .flecha {
+  color: violet;
+  display: block;
+  padding: 5px 14px;
+  border-radius: 50%;
+  background-color: rgb(1, 9, 37);
+  font-size: 30px;
+  transform: rotate(0deg);
+}
+.close .filtros_lista .active {
+  padding: 5px 0;
+}
+.close .filtros_lista #extra .filter__title__text {
+  display: none;
+}
+.close .filtros_lista .filter__text {
+  display: none;
+}
+
+.arrow {
+  transform: rotate(-90deg);
+}
+
+.general__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.carrito__container {
+  width: 80%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: "Urbanist";
+  gap: 30px;
+  color: #fafafa;
+}
+.carrito__container .carrito__producto {
+  background-color: rgb(25, 10, 68);
+  border-radius: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.carrito__container .carrito__producto .imagen__nombre__producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carrito__container .carrito__producto .imagen__nombre__producto .imagen__nombre__producto--img {
+  width: 90px;
+  border-radius: 15px;
+  margin: 0 10px;
+}
+.carrito__container .carrito__producto .imagen__nombre__producto .imagen__nombre__producto--img img {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.carrito__container .carrito__producto .cantidad__producto {
+  transform: translateX(-51%);
+}
+.carrito__container .carrito__producto .iconos___producto {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.carrito__container .carrito__producto .iconos___producto button {
+  background-color: rgb(25, 10, 68);
+  overflow: hidden;
+  position: relative;
+  padding: 0 10px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+.carrito__container .carrito__producto .iconos___producto button span {
+  transition-timing-function: cubic-bezier(1, 2);
+  transition-duration: 0.9s;
+  border-radius: 9999px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.carrito__container .carrito__producto .iconos___producto button:hover span {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 0, 3);
+}
+.carrito__container .carrito__producto .iconos___producto i {
+  color: #fafafa;
+  padding: 10px 0;
+}
+
+.mensaje__carrito__vacio {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mensaje__carrito__vacio .mensaje__carrito__vacio--contenedor {
+  text-align: center;
+  width: 100%;
+}
+.mensaje__carrito__vacio .mensaje__carrito__vacio--contenedor h1 {
+  font-family: "Poppins";
+  font-size: 35px;
+  color: #c7c7c7;
+}
+.mensaje__carrito__vacio .mensaje__carrito__vacio--contenedor i {
+  padding-top: 5px;
+  font-size: 40px;
+  color: #c7c7c7;
+  transition: all 0.6s;
+}
+.mensaje__carrito__vacio .mensaje__carrito__vacio--contenedor i:hover {
+  color: rgb(4, 238, 199);
+}
+
+.volver__comprar {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.volver__comprar .carrito--vacio {
+  font-family: "Poppins";
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 12px 25px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  color: #dbdbdb;
+  background-color: rgb(25, 10, 68);
+  overflow: hidden;
+  cursor: pointer;
+}
+.volver__comprar .carrito--vacio p {
+  font-family: "Poppins";
+  font-weight: 600;
+  position: relative;
+}
+.volver__comprar .carrito--vacio .circle {
+  transition: all 0.9s ease-in-out;
+  width: 0px;
+  height: 0px;
+  background-color: rgb(230, 4, 117);
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.volver__comprar .carrito--vacio:hover .circle {
+  width: 500px;
+  height: 500px;
+}
+
+.resumen__compra {
+  display: none;
+  padding: 15px;
+  background-color: blueviolet;
+  max-width: 400px;
+  max-height: 300px;
+  padding: 20px 25px;
+  font-family: "Urbanist";
+  border-radius: 12px;
+  color: #dbdbdb;
+  margin: 30px 20px 0 0;
+}
+.resumen__compra h3 {
+  text-align: center;
+  font-family: "Poppins";
+}
+.resumen__compra .cantidad__productos {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 40px 0;
+}
+.resumen__compra .total__precio {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.resumen__compra .finalizar__compra {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resumen__compra .finalizar__compra .final--compra {
+  font-family: "Poppins";
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 9px 25px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  color: #dbdbdb;
+  background-color: rgb(25, 10, 68);
+  overflow: hidden;
+}
+.resumen__compra .finalizar__compra .final--compra p {
+  position: relative;
+}
+.resumen__compra .finalizar__compra .final--compra .circle {
+  transition: all 0.9s ease-in-out;
+  width: 0px;
+  height: 0px;
+  background-color: rgb(230, 4, 117);
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.resumen__compra .finalizar__compra .final--compra:hover .circle {
+  width: 500px;
+  height: 500px;
+}
+
+.bton__regresar {
+  text-decoration: none;
+  cursor: pointer;
+}
+.bton__regresar .ico i {
+  cursor: pointer;
+}
+
+#bton__regresar {
+  cursor: pointer;
+}
+#bton__regresar p {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.bton__regresar:hover #bton__regresar p {
+  text-decoration: underline;
+}
+.bton__regresar:hover #bton__regresar p:hover {
+  text-decoration: underline;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

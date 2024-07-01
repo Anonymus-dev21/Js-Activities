@@ -134,6 +134,7 @@ const stock = [{
         nombre: "Proyector Auroras boreales",
         tipo: "proyector",
         precio: 20000,
+        img: "img/proyector 1.jpg",
         descripción: " Tiene mas de 10 modos de iluminación distintos y lasers que simulan estrellas. Proyectan una simulación de auroras boreales hermosa.",
         color: "Rojo, verde, Blanco, Azul y las distintas combinaciónes entre ellos",
     },
@@ -142,6 +143,7 @@ const stock = [{
         nombre: "Proyector Estrellas",
         tipo: "proyector",
         precio: 15000,
+        img: "img/proyector estrellas.jpg",
         descripción: " Velador principalmente mas infantil",
         color: "Estrellas infantiles violetas, azules, blancas y rojas y algunas combinaciones de ellos.",
     },
@@ -149,162 +151,301 @@ const stock = [{
         titulo: "Proyector Astronauta Galaxy Flat Lampara 360°",
         nombre: "Proyector Galaxia",
         precio: 15000,
+        img: "img/proyector Astronauta.jpg",
+        tipo: "proyector",
         descripción: " El proyector aurora genera nebulosas coloridas e impredecibles, con brillo de 5 niveles y 8 colores nebulosos, proporcionando una experiencia similar a estar en una gran galaxia.",
         color: "Multicolor",
 
     },
     {
+        id: 1,
         titulo: "Lampra de auroras boreales",
         nombre: "Lampara nebulosa.",
         precio: 37500,
+        img: "img/Lampara Nebulosa.jpg",
+        tipo: "lampara",
         descripción: " posee un vidrio ondulado y una luz en el interior que se le puede ir cambiando el color, reflejando asi perfectamente unas nebulosas o auroras boreales. Posee un efecto muy suave",
         color: "Rojo, Azul y Verde"
     },
     {
         titulo: "Tiras LED",
         nombre: "Cinta led",
+        tipo: "LED",
         precio: 5500,
+        img: "img/Tiras Led.webp",
         descripción: " cinta led multicolor de aproximadamente 5mts para adornar cualquier mueble o habitación",
         color: "multicolor"
     },
     {
         titulo: "Foco Led",
         nombre: "Bombilla LED",
+        tipo: "LED",
         precio: 7500,
+        img: "img/Foco Led.jpg",
         descripción: " Un foco que le podes cambiar a distintos colores estáticos",
         color: "multicolor"
     }
 ];
 
-let confirmar = false;
-let precioTotal = 0;
-let precioCompraFinal = 0;
-let catalogo = "Te podemos ofrecer: \n"
-stock.forEach(propiedad => {
-    catalogo += propiedad.nombre + ":" + propiedad.descripción + ". Vale " + propiedad.precio + "$" + "\n \n";
-}) //MUESTRO LAS OPCIONES
-// console.log(catalogo)
-let productoSeleccionar = ""
-let cantidadProductos = 0;
+const cardsContainer = document.querySelector(".card__container");
+const filterButtons = document.querySelectorAll(".filer__links")
+let botonCarrito = document.querySelectorAll(".cart__button")
 
-const productosAgregados = []
-const productos = stock.map((nmbre) => {
-    return {
-        nombre: nmbre.nombre.toLowerCase(),
-        precio: nmbre.precio,
-    }
+function mostrarProductos(stock) {
+    cardsContainer.innerHTML = '';
+    stock.forEach(producto => {
+        const div = document.createElement("div")
+        div.classList.add("cards")
 
+        div.innerHTML = ` 
+        <div class="card__img">
+        <img src="${producto.img}">
+    </div>
+    <div class="card__title">
+        <span> ${producto.titulo}</span>
+    </div>
+    
+    <div class="card__description">
+        <p> ${producto.descripción}</p>
+    </div>
+    <div class="card__price__and__carrito">
+        <div class="price">
+            <p>${"$" + producto.precio}</p>
+        </div> 
+        <div class="add__carrito">
+        <button class="cart__button" id="${producto.nombre}">
+            <span class="effect"> </span>
+            <i class="fa-solid fa-cart-plus"></i>
+        </button>
+        </div>
+        
+        
+    </div>`
+        cardsContainer.appendChild(div)
+    })
+    actualizarBotonCarrito()
+    console.log(botonCarrito)
+}
+mostrarProductos(stock)
+
+filterButtons.forEach(botones => {
+    botones.addEventListener("click", (e) => {
+
+        filterButtons.forEach(botones => botones.classList.remove("active"));
+        e.currentTarget.classList.add("active")
+
+
+        if (e.currentTarget.id !== "todos") {
+            const filtroBotones = stock.filter(categoria => categoria.tipo === e.currentTarget.id)
+
+            mostrarProductos(filtroBotones)
+        } else {
+            mostrarProductos(stock)
+        }
+    })
 })
-console.log(productos)
 
 
+const menu = document.querySelector(".filtros")
 
-const validarNmro = (cantidad) => {
-    while (Number.isNaN(cantidad) || cantidad === 0) {
-        if (cantidad !== 0) {
-            alert("Debe agregar un número")
-        } else {
-            alert("Debe agregar un número distinto a 0")
-        }
-        cantidad = Number(prompt("¿Cuántos querés comprar?"));
-    }
-    return cantidad;
+const toggle = document.querySelector(".flecha")
+
+toggle.addEventListener("click", () => {
+    menu.classList.toggle("close")
+})
+
+// ==============================CARRITO===================================
+function actualizarBotonCarrito() {
+    botonCarrito = document.querySelectorAll(".cart__button")
+    botonCarrito.forEach((boton) => {
+        boton.addEventListener("click", agregarAlCarrito)
+    })
+}
+const productosAgregadosStorage = JSON.parse(localStorage.getItem("productos"))
+let productosEnCarrito
+if (productosAgregadosStorage){
+    productosEnCarrito = productosAgregadosStorage
+    actualizarCantidadCarrito()
+} else{
+    productosEnCarrito = []
 }
 
 
-
-const validarNya = (nombre) => {
-    if (nombre || nombre == "") {
-        if (nombre.length < 3 || nombre == "") {
-            while (nombre.length < 3 || nombre == "") {
-                nombre = prompt("Ingresa un nombre y apellido con 3 o mas carácteres")
-            }
-        }
+function agregarAlCarrito(e) {
+    const id = e.currentTarget.id;
+    const pdtoAgregado = stock.find(elemento => elemento.nombre == id)
+    if(productosEnCarrito.some(elemento => elemento.nombre == id)){
+        const index = productosEnCarrito.findIndex(elemento => elemento.nombre == id)
+        productosEnCarrito[index].cantidad++;
+    } else{
+        pdtoAgregado.cantidad = 1;
+        productosEnCarrito.push(pdtoAgregado)
     }
-    return nombre
+    actualizarCantidadCarrito()
+    
+    localStorage.setItem("productos", JSON.stringify(productosEnCarrito))
 }
 
-let nombre = prompt("Hola como estas, antes de comenzar queremos saber tu nombre! Cual es?")
-if (nombre || nombre == "") {
-    nombre = validarNya(nombre)
-}
-if (nombre) {
-    confirmar = confirm(`Hola devuelta ${nombre} deseas comprar algo?`)
-    if (confirmar) {
-        do {
-            alert(`Estos son los productos disponibles \n \n ${catalogo}`)
-            productoSeleccionar = prompt(`Cual desea comprar?`)
-            const productoEncontrado = productos.find((nme) => nme.nombre.includes(productoSeleccionar.toLowerCase()));
-            console.log(productoEncontrado)
-
-            if (productoEncontrado) {
-                let confirmacionCompra = confirm(`Seguro deseas comprar ${productoSeleccionar.toLowerCase()}?`)
-                if (confirmacionCompra) {
-
-                    cantidadProductos = Number(prompt(`Cuantos ${productoSeleccionar.toLowerCase()} desea comprar?`))
-                    var validarCantidad = validarNmro(cantidadProductos)
-                    precioTotal = productoEncontrado.precio * validarCantidad;
-                    const nuevoProducto = {
-                        nombre: productoEncontrado.nombre,
-                        precioTotal: precioTotal,
-                        cantidad: validarCantidad,
-                    }
-                    productosAgregados.push(nuevoProducto)
-                    console.log(productosAgregados)
-                }
-
-            } else {
-                alert("El producto ingresado no esta disponible o es incorrecto!")
-            }
-            volverAComprar = confirm("Desea agregar otro producto?")
-        } while (volverAComprar)
+function actualizarCantidadCarrito () {
+    let numCarrito = document.querySelector(".carrito__cantidad")
+    let numActualizado =productosEnCarrito.reduce((acc, valor) => acc + valor.cantidad, 0)
+    numCarrito.innerText = numActualizado
     }
-    const eliminarProducto = (index) => {
-        if (index >= 0 && index < productosAgregados.length) {
-            productosAgregados.splice(index, 1);
-            return true;
-        } else {
-            return false;
-        }
-    };
 
-    let listaDeProductos = "Productos en tu carrito:\n";
-    productosAgregados.forEach((pdto, index) => {
-        listaDeProductos += `${index + 1}. ${pdto.nombre} - $${pdto.precioTotal}\n`;
-    });
-    alert(listaDeProductos);
 
-    let eliminarObjeto = confirm("¿Desea eliminar algún producto?");
-    if (eliminarObjeto) {
-        let objetoEliminado = prompt("Ingrese el número del producto que desea eliminar:");
-        let indexProductoAEliminar = parseInt(objetoEliminado) - 1;
+/* <div class="cards">
+                <div class="card__img">
+                    <img src="img/logo galaxy shop.jpg">
+                </div>
+                <div class="card__title">
+                    <span> PRODUCTO RANDOM</span>
+                </div>
 
-        let objetoEliminadoValidado = eliminarProducto(indexProductoAEliminar);
-        if (objetoEliminadoValidado) {
-            alert("¡El producto ha sido eliminado exitosamente!");
-        } else {
-            alert("El producto ingresado no está en la lista.");
-        }
-        let resumenDeCompra = confirm("Desea finalizar su compra?");
-        if (resumenDeCompra) {
-            precioCompraFinal = productosAgregados.reduce((iteracciones, finalPrice) => {
-                return iteracciones + finalPrice.precioTotal
-            }, 0)
+                <div class="card__description">
+                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo labore reiciendis soluta, blanditiis inventore necessitatibus at quam ipsa dolorum possimus iste neque, quos repudiandae eligendi, odit libero praesentium est magni.</p>
+                </div>
+                <div class="card__price__and__carrito">
+                    <div class="price">
+                        <p>$9500</p>
+                    </div> 
+                    <div class="add__carrito">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    
+                </div>
+                
+            </div>} */
 
-            let resumen = "Resumen de tu compra:\n";
-            productosAgregados.forEach((pdto) => {
-                resumen += `${pdto.nombre} - Cantidad: ${pdto.cantidad} - Precio total: $${pdto.precioTotal}. \n`;
 
-            })
-            alert(resumen)
+// let confirmar = false;
+// let precioTotal = 0;
+// let precioCompraFinal = 0;
+// let catalogo = "Te podemos ofrecer: \n"
+// stock.forEach(propiedad => {
+//     catalogo += propiedad.nombre + ":" + propiedad.descripción + ". Vale " + propiedad.precio + "$" + "\n \n";
+// }) //MUESTRO LAS OPCIONES
+// // console.log(catalogo)
+// let productoSeleccionar = ""
+// let cantidadProductos = 0;
 
-            alert(`Tu compra final es de: $${precioCompraFinal}`)
+// const productosAgregados = []
+// const productos = stock.map((nmbre) => {
+//     return {
+//         nombre: nmbre.nombre.toLowerCase(),
+//         precio: nmbre.precio,
+//     }
 
-            alert("Muchísimas gracias por su compra, disfrute sus productos!")
-        } else {
-            alert("Que lastima, esperamos ansioso su regreso! Que tenga Buen día.")
-        }
-    }
-} else {
-    alert("lo sentimos, que tenga un buen día!")
-}
+// })
+// console.log(productos)
+
+
+
+// const validarNmro = (cantidad) => {
+//     while (Number.isNaN(cantidad) || cantidad === 0) {
+//         if (cantidad !== 0) {
+//             alert("Debe agregar un número")
+//         } else {
+//             alert("Debe agregar un número distinto a 0")
+//         }
+//         cantidad = Number(prompt("¿Cuántos querés comprar?"));
+//     }
+//     return cantidad;
+// }
+
+
+
+// const validarNya = (nombre) => {
+//     if (nombre || nombre == "") {
+//         if (nombre.length < 3 || nombre == "") {
+//             while (nombre.length < 3 || nombre == "") {
+//                 nombre = prompt("Ingresa un nombre y apellido con 3 o mas carácteres")
+//             }
+//         }
+//     }
+//     return nombre
+// }
+
+// let nombre = prompt("Hola como estas, antes de comenzar queremos saber tu nombre! Cual es?")
+// if (nombre || nombre == "") {
+//     nombre = validarNya(nombre)
+// }
+// if (nombre) {
+//     confirmar = confirm(`Hola devuelta ${nombre} deseas comprar algo?`)
+//     if (confirmar) {
+//         do {
+//             alert(`Estos son los productos disponibles \n \n ${catalogo}`)
+//             productoSeleccionar = prompt(`Cual desea comprar?`)
+//             const productoEncontrado = productos.find((nme) => nme.nombre.includes(productoSeleccionar.toLowerCase()));
+//             console.log(productoEncontrado)
+
+//             if (productoEncontrado) {
+//                 let confirmacionCompra = confirm(`Seguro deseas comprar ${productoSeleccionar.toLowerCase()}?`)
+//                 if (confirmacionCompra) {
+
+//                     cantidadProductos = Number(prompt(`Cuantos ${productoSeleccionar.toLowerCase()} desea comprar?`))
+//                     var validarCantidad = validarNmro(cantidadProductos)
+//                     precioTotal = productoEncontrado.precio * validarCantidad;
+//                     const nuevoProducto = {
+//                         nombre: productoEncontrado.nombre,
+//                         precioTotal: precioTotal,
+//                         cantidad: validarCantidad,
+//                     }
+//                     productosAgregados.push(nuevoProducto)
+//                     console.log(productosAgregados)
+//                 }
+
+//             } else {
+//                 alert("El producto ingresado no esta disponible o es incorrecto!")
+//             }
+//             volverAComprar = confirm("Desea agregar otro producto?")
+//         } while (volverAComprar)
+//     }
+//     const eliminarProducto = (index) => {
+//         if (index >= 0 && index < productosAgregados.length) {
+//             productosAgregados.splice(index, 1);
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     };
+
+//     let listaDeProductos = "Productos en tu carrito:\n";
+//     productosAgregados.forEach((pdto, index) => {
+//         listaDeProductos += `${index + 1}. ${pdto.nombre} - $${pdto.precioTotal}\n`;
+//     });
+//     alert(listaDeProductos);
+
+//     let eliminarObjeto = confirm("¿Desea eliminar algún producto?");
+//     if (eliminarObjeto) {
+//         let objetoEliminado = prompt("Ingrese el número del producto que desea eliminar:");
+//         let indexProductoAEliminar = parseInt(objetoEliminado) - 1;
+
+//         let objetoEliminadoValidado = eliminarProducto(indexProductoAEliminar);
+//         if (objetoEliminadoValidado) {
+//             alert("¡El producto ha sido eliminado exitosamente!");
+//         } else {
+//             alert("El producto ingresado no está en la lista.");
+//         }
+//         let resumenDeCompra = confirm("Desea finalizar su compra?");
+//         if (resumenDeCompra) {
+//             precioCompraFinal = productosAgregados.reduce((iteracciones, finalPrice) => {
+//                 return iteracciones + finalPrice.precioTotal
+//             }, 0)
+
+//             let resumen = "Resumen de tu compra:\n";
+//             productosAgregados.forEach((pdto) => {
+//                 resumen += `${pdto.nombre} - Cantidad: ${pdto.cantidad} - Precio total: $${pdto.precioTotal}. \n`;
+
+//             })
+//             alert(resumen)
+
+//             alert(`Tu compra final es de: $${precioCompraFinal}`)
+
+//             alert("Muchísimas gracias por su compra, disfrute sus productos!")
+//         } else {
+//             alert("Que lastima, esperamos ansioso su regreso! Que tenga Buen día.")
+//         }
+//     }
+// } else {
+//     alert("lo sentimos, que tenga un buen día!")
+// }
