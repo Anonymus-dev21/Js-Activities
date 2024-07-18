@@ -1,0 +1,57 @@
+[
+    {
+        "titulo": "Suono Home Proyector Luz Noche Láser",
+        "nombre": "Proyector Auroras boreales",
+        "tipo": "proyector",
+        "precio": 20000,
+        "img": "img/proyector 1.jpg",
+        "descripción": "Tiene más de 10 modos de iluminación distintos y lasers que simulan estrellas. Proyectan una simulación de auroras boreales hermosa.",
+        "color": "Rojo, verde, Blanco, Azul y las distintas combinaciones entre ellos"
+    },
+    {
+        "titulo": "Proyector De Estrellas Giratorio Color de la estructura Rosa",
+        "nombre": "Proyector Estrellas",
+        "tipo": "proyector",
+        "precio": 15000,
+        "img": "img/proyector estrellas.jpg",
+        "descripción": "Velador principalmente más infantil",
+        "color": "Estrellas infantiles violetas, azules, blancas y rojas y algunas combinaciones de ellos."
+    },
+    {
+        "titulo": "Proyector Astronauta Galaxy Flat Lampara 360°",
+        "nombre": "Proyector Galaxia",
+        "precio": 15000,
+        "img": "img/proyector Astronauta.jpg",
+        "tipo": "proyector",
+        "descripción": "El proyector aurora genera nebulosas coloridas e impredecibles, con brillo de 5 niveles y 8 colores nebulosos, proporcionando una experiencia similar a estar en una gran galaxia.",
+        "color": "Multicolor"
+    },
+    {
+        "id": 1,
+        "titulo": "Lampra de auroras boreales",
+        "nombre": "Lampara nebulosa",
+        "precio": 37500,
+        "img": "img/Lampara Nebulosa.jpg",
+        "tipo": "lampara",
+        "descripción": "Posee un vidrio ondulado y una luz en el interior que se le puede ir cambiando el color, reflejando así perfectamente unas nebulosas o auroras boreales. Posee un efecto muy suave.",
+        "color": "Rojo, Azul y Verde"
+    },
+    {
+        "titulo": "Tiras LED",
+        "nombre": "Cinta led",
+        "tipo": "LED",
+        "precio": 5500,
+        "img": "img/Tiras Led.webp",
+        "descripción": "Cinta led multicolor de aproximadamente 5mts para adornar cualquier mueble o habitación.",
+        "color": "Multicolor"
+    },
+    {
+        "titulo": "Foco Led",
+        "nombre": "Bombilla LED",
+        "tipo": "LED",
+        "precio": 7500,
+        "img": "img/Foco Led.jpg",
+        "descripción": "Un foco que le puedes cambiar a distintos colores estáticos.",
+        "color": "Multicolor"
+    }
+]

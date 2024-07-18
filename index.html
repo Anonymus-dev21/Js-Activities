@@ -16,13 +16,20 @@
 <body>
     <header>
         <div class="navbar">
+            <div class="btn__menu">
+                <i class="fa-solid fa-bars menu__navbar"></i>
+            </div>
+            <div class="drk__bg"></div>
             <div class="menu">
 
-                <nav>
+                <nav class="nav">
+                    <div class="x">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
                     <ul class="navbar__list">
                         <li><a href="index.html"> Inicio</a></li>
                         <li><a href="productos.html">Nuestros productos</a></li>
-                        <li><a>Contacto</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
                         <li><a>Donde esta mi pedido?</a></li>
                     </ul>
                 </nav>
@@ -88,11 +95,248 @@
         <div class="swiper-pagination"></div>
     </div>
     <main class="nose">
+        <div class="about__us__container">
+            <div class="about__us__img">
+                <img src="img/Imagen about us.jfif">
+            </div>
+
+            <div class="about__us__txt">
+                <p>En Galaxy-comerce, estamos dedicados a llevar la magia y la belleza del universo directamente a tu
+                    hogar. Nuestra misión es crear experiencias inolvidables a través de productos innovadores que
+                    transformen cualquier espacio en un espectáculo deslumbrante de luces y colores.
+                </p>
+            </div>
+        </div>
+        <div class="pq__elegirnos__container">
+            <h2> Porque elegirnos?</h2>
+            <div class="acordeon__container">
+                <div class="acordeon__top">
+                    <div class="acordeon__top--title">
+                        <h3>Calidad</h3>
+                    </div>
+                    <div class="acordeon__top--icon">
+                        <i class="fa-solid fa-chevron-down" id="arrow__acordeon"></i>
+                    </div>
+                </div>
+                <span class="linea"></span>
+                <div class="acordeon__dsc">
+                    <p>La calidad es la piedra angular de nuestra oferta. Todos nuestros productos pasan por un riguroso
+                        control de calidad para asegurarnos de que cumplen con los más altos estándares. Utilizamos
+                        materiales duraderos y tecnología avanzada para garantizar que nuestros proyectores y luces LED
+                        no solo sean visualmente impresionantes, sino también duraderos y seguros. Al elegirnos, estás
+                        invirtiendo en productos que ofrecen una experiencia superior y una larga vida útil.</p>
+                </div>
+            </div>
+            <div class="acordeon__container">
+                <div class="acordeon__top">
+                    <div class="acordeon__top--title">
+                        <h3>Rapidez</h3>
+                    </div>
+                    <div class="acordeon__top--icon">
+                        <i class="fa-solid fa-chevron-down" id="arrow__acordeon"></i>
+                    </div>
+                </div>
+                <span class="linea"></span>
+                <div class="acordeon__dsc">
+                    <p>Entendemos que cuando compras un producto emocionante como un proyector de estrellas o luces LED,
+                        quieres disfrutarlo lo antes posible. Por eso, nos hemos asociado con los mejores servicios de
+                        logística para asegurar que tu pedido llegue rápidamente y en perfectas condiciones. Nuestro
+                        proceso de envío es eficiente y seguro, garantizando que recibas tus productos en el menor
+                        tiempo posible. Además, contamos con opciones de envío rápido para aquellos que no pueden
+                        esperar para transformar su espacio.</p>
+                </div>
+            </div>
+            <div class="acordeon__container">
+                <div class="acordeon__top">
+                    <div class="acordeon__top--title">
+                        <h3>Confiabilidad</h3>
+                    </div>
+                    <div class="acordeon__top--icon">
+                        <i class="fa-solid fa-chevron-down" id="arrow__acordeon"></i>
+                    </div>
+                </div>
+                <span class="linea"></span>
+                <div class="acordeon__dsc">
+                    <p>Nuestra prioridad es ganarnos tu confianza y asegurar tu satisfacción en cada compra. Nos
+                        distinguimos por nuestra transparencia y compromiso con el cliente. Ofrecemos una garantía
+                        completa en todos nuestros productos, y nuestro equipo de atención al cliente está siempre
+                        disponible para resolver cualquier duda o problema que puedas tener. Con Galaxy-comerce, puedes
+                        estar seguro de que estás adquiriendo productos de un proveedor confiable y responsable.</p>
+                </div>
+            </div>
+
+
+        </div>
 
     </main>
+    <section class="reseñas__container swiper mySwiper2">
+        <div class="swiper-wrapper">
+            <div class="reseñas__content swiper-slide">
+                <div class="reseñas__top">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div class="reseñas__txt">
+                    <p>El proyector de auroras boreales es increíble y realmente transforma cualquier habitación. La
+                        razón por la que no le doy cinco estrellas completas es porque tuve algunos problemas con el
+                        control remoto al principio. Después de contactar al servicio al cliente, me ayudaron
+                        rápidamente a resolver el problema. A pesar de este inconveniente, estoy muy satisfecho con el
+                        producto y el servicio recibido.</p>
+                </div>
+                <div class="stars__nombre">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                    </div>
+                    <span class="nombre">Luis Fernandez</span>
 
+                </div>
+            </div>
 
-    
+            <div class="reseñas__content swiper-slide">
+                <div class="reseñas__top">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div class="reseñas__txt">
+                    <p>Compré un proyector de estrellas para ambientar mi sala de estar y, en general, estoy muy
+                        contenta con la compra. La proyección es hermosa y realmente da una sensación mágica. Sin
+                        embargo, me hubiera gustado que viniera con más opciones de configuración para los lasers, que
+                        en algunas ocasiones son demasiado fuertes. Aun así, la calidad del producto y la rapidez en el
+                        envío fueron excelentes. Definitivamente lo recomiendo.</p>
+                </div>
+                <div class="stars__nombre">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <span class="nombre">Jorge Lopez</span>
+
+                </div>
+            </div>
+
+            <div class="reseñas__content swiper-slide">
+                <div class="reseñas__top">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div class="reseñas__txt">
+                    <p>Las luces LED que compré son de la mejor calidad que he visto. Son brillantes, duraderas y
+                        perfectas para decorar cualquier espacio. La experiencia de compra fue muy fluida y el equipo de
+                        atención al cliente fue muy amable y servicial. Sin duda recomendaría este ecommerce a
+                        cualquiera que busque productos de buena calidad y accesibles.</p>
+                </div>
+                <div class="stars__nombre">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="nombre">Roberto</span>
+
+                </div>
+            </div>
+
+            <div class="reseñas__content swiper-slide">
+                <div class="reseñas__top">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div class="reseñas__txt">
+                    <p>Decidí probar la lampara de nebulosa y ha superado todas mis expectativas. La proyección es
+                        increíblemente detallada y crea una atmósfera perfecta para un amante de las auroras boreales
+                        como yo y las noches de película. El envío fue muy rápido y el producto vino bien empaquetado.
+                        Muy satisfecho con el producto y el servicio. ¡Un 10 de 10!</p>
+                </div>
+                <div class="stars__nombre">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="nombre">Ambar Molinari</span>
+
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next" id="next"></div>
+        <div class="swiper-button-prev" id="prev"></div>
+        <div class="swiper-pagination" id="pagination"></div>
+    </section>
+
+    <footer>
+        <div class="footer__content">
+            <div class="enlaces__top">
+                <div class="title">
+                    <h3>Secciones de interes</h3>
+                </div>
+
+                <div class="enlaces">
+                    <a href="#">Contacto</a>
+                    <a href="#">Donde esta mi pedido?</a>
+                    <a href="productos.html">Productos</a>
+                    <a href="index.html">Inicio</a>
+                </div>
+            </div>
+            <div class="enlaces__content">
+                <div class="contactanos">
+                    <div class="title">
+                        <span class="resaltado__title">Contactanos</span>
+                    </div>
+                    <div class="telefono__horario">
+                        <p><span class="resaltado">Telefono: </span>3487152346</p>
+                        <p><span class="resaltado">Horarios: </span>Lunes a Sabados, 10:00 - 19:00</p>
+                    </div>
+                    <div class="redes__sociales">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-tiktok"></i>
+                        <i class="fa-brands fa-pinterest"></i>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
+                <div class="cuenta">
+                    <span class="resaltado__title cuenta__title">Tu cuenta: </span>
+                    <div class="caja">
+                        <a href="#">Iniciar sesión</a>
+                    </div>
+                    <div class="caja">
+                        <a href="carrito.html">Carrito de Compras</a>
+                    </div>
+                    <div class="caja"><a href="#">Wishlist</a></div>
+                    <div class="caja"><a href="#">Tracking de pedidos</a></div>
+                </div>
+
+                <div class="metodos_pago">
+                    <span class="resaltado__title">Métodos de pago: </span>
+                    <div class="metodos_pago--img">
+                        <div class="box" id="mp">
+                            <img src="img/mp.png">
+                        </div>
+                        <div class="box">
+                            <img src="img/visa.svg">
+                        </div>
+                        <div class="box">
+                            <img src="img/credit-card.svg">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="rigths__reserved">
+                <i class="fa-regular fa-copyright"></i>
+                <span class="rigths">Todos los derechos reservados</span>
+            </div>
+
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -100,6 +344,23 @@
             centeredSlides: true,
             autoplay: {
                 delay: 2700,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            spaceBetween: 15,
+            centeredSlides: true,
+            autoplay: {
+                delay: 20000,
                 disableOnInteraction: false,
             },
             pagination: {

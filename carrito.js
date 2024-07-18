@@ -1,16 +1,16 @@
 const containerGeneral = document.querySelector(".carrito__container")
 const generalContainer = document.querySelector(".general__container")
 const productosAgregados = JSON.parse(localStorage.getItem("productos"))
-const mensajeCarritoVacio= document.querySelector(".mensaje__carrito__vacio")
+const mensajeCarritoVacio = document.querySelector(".mensaje__carrito__vacio")
 let btnsEliminar = document.querySelectorAll(".dlte")
 let btnsResta = document.querySelectorAll(".resta")
 let btnsSuma = document.querySelectorAll(".suma")
-console.log(productosAgregados)
+
 
 function aparecerCarrito() {
     if (productosAgregados && productosAgregados.length > 0) {
 
-        generalContainer.style.display="flex"
+        generalContainer.style.display = "flex"
         mensajeCarritoVacio.style.display = "none"
         containerGeneral.innerHTML = "";
 
@@ -28,11 +28,13 @@ function aparecerCarrito() {
     <span>${producto.nombre}</span>
     </div>
     </div>
-    <div class="cantidad__producto">
+    <div class="cantidad__precio">
+    <div class="cantidad__producto" id="producto">
     <p>cantidad: <span>${producto.cantidad}</span></p>
     </div>
-    <div class="cantidad__producto">
+    <div class="cantidad__producto" id="precio">
     <p>Precio total: <span>${producto.cantidad * producto.precio}</span></p>
+    </div>
     </div>
     <div class="iconos___producto">
     <div class="suma" id="${producto.nombre}">
@@ -61,7 +63,7 @@ function aparecerCarrito() {
         actualizarbtnElminar()
         actualizarBotonResta()
         actualizarBotonSuma()
-    } else{
+    } else {
         mensajeCarritoVacio.style.display = "flex"
         generalContainer.style.display = "none";
     }
@@ -112,20 +114,20 @@ function restarCantidad(e) {
 
     if (productosAgregados[index].cantidad > 1) {
         productosAgregados[index].cantidad--;
-        
+
     } else {
         productosAgregados.splice(index, 1)
         console.log(productosAgregados)
 
     }
-    
+
     localStorage.setItem("productos", JSON.stringify(productosAgregados));
     if (productosAgregados && productosAgregados.length > 0) {
         actualizarResumenPrecios()
     }
     mostrarResumen()
     actualizarResumen()
-    
+
     actualizarCantidadCarrito()
     aparecerCarrito()
 }
@@ -161,11 +163,10 @@ function actualizarResumen() {
     let cantidadResumenActualizada = productosAgregados.reduce((acc, cantidadpdto) => acc + cantidadpdto.cantidad, 0)
     cantidadResumen.innerText = cantidadResumenActualizada
 }
-
+let precioFinal = document.querySelector(".precio--final")
 function actualizarResumenPrecios() {
     let resultado = []
     let cantidadResumenTotal = document.querySelector(".cantidad--precio")
-    let precioFinal = document.querySelector(".precio--final")
     let totalesSumar = productosAgregados.map(pdto => {
         let resultado1 = pdto.cantidad * pdto.precio
         resultado.push(resultado1)
@@ -203,6 +204,27 @@ if (productosAgregados && productosAgregados.length > 0) {
 
 
 
+// =========================================NAVBARSSS=====================================================================
+
+document.querySelector(".menu__navbar").addEventListener("click", aparecerMenu)
+const bgDrk = document.querySelector(".drk__bg")
+document.querySelector(".x").addEventListener("click", ocultarMenu)
+const nav = document.querySelector(".nav")
+
+bgDrk.addEventListener("click", ocultarMenu)
+
+function aparecerMenu() {
+    nav.style.right = "0"
+    bgDrk.style.display = "block"
+}
+
+function ocultarMenu() {
+    nav.style.right = "-100%"
+    bgDrk.style.display = "none"
+
+}
+
+
 
 
 
@@ -213,6 +235,35 @@ const toggle = document.querySelector(".flecha")
 toggle.addEventListener("click", () => {
     menu.classList.toggle("close")
 })
+// =========================================FIN NAVBARS=================================================================
+
+// ====================================================== VENTANA MODAL EXITO ==========================================
+document.querySelector(".final--compra").addEventListener("click", () => {
+    Swal.fire({
+        title: "Seguro que deseas finalizar la compra?",
+        html: `¡No podrás revertirlo!<br>Total de la compra: ${precioFinal.innerHTML}`,
+        icon: "warning",
+        iconColor:"orange",
+        showCancelButton: true,
+        confirmButtonColor: "#008000",
+        cancelButtonColor: "#d33",
+        cancelButtonText:"Cancelar",
+        confirmButtonText: "Finalizar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Compra realizada con exito!",
+                text: "Esperamos encontrarnos nuevamente",
+                icon: "success"
+            });
+            localStorage.removeItem("productos")
+            productosAgregados.length = 0
+            aparecerCarrito()
+            actualizarCantidadCarrito()
+        }
+    });
+})
+
 /* <div class="carrito__producto">
                 <div class="imagen__nombre__producto">
                     <div class="imagen__nombre__producto--img">
