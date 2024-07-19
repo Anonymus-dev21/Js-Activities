@@ -1716,7 +1716,7 @@ footer .rigths__osky .my a:hover {
 }
 @media screen and (max-width: 400px) {
   #error__msj .error__msj--content {
-    padding: 0;
+    padding: 10px 0 25px;
   }
   #error__msj .error__msj--content .msj__error {
     padding-right: 10px;
