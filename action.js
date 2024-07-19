@@ -132,7 +132,7 @@
 let stock;
 const principalGenerator = async () => {
     try {
-        const response = await fetch("/stock.json")
+        const response = await fetch("./stock.json")
         const data = await response.json()
         stock = data;
         const cardsContainer = document.querySelector(".card__container");
