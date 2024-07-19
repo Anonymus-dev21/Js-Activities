@@ -530,6 +530,7 @@ header {
   gap: 30px;
 }
 .card__container .cards {
+  z-index: 10;
   max-width: 300px;
   min-height: 450px;
   color: #b1afaf;
@@ -540,6 +541,7 @@ header {
   animation: aparecer both;
   animation-timeline: view();
   animation-range: cover 2% cover 40%;
+  z-index: 10;
 }
 .card__container .cards .card__img {
   width: 100%;
@@ -634,6 +636,7 @@ header {
   font-family: "Poppins";
   border-top-right-radius: 25px;
   border-bottom-right-radius: 15px;
+  z-index: 20;
 }
 .filtros .top__menu {
   width: 100%;
@@ -649,19 +652,21 @@ header {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   align-items: center;
   color: #cecece;
+  z-index: 19;
 }
 .filtros .top__menu .menu__left a {
   text-decoration: none;
+  font-size: 15px;
   color: #cecece;
 }
 .filtros .top__menu .menu__left a .ico {
-  margin: 5px;
+  margin: 4px;
 }
 .filtros .top__menu .menu__left a .ico i {
-  font-size: 25px;
+  font-size: 23px;
 }
 .filtros .top__menu .menu__left a .logo__filter p {
   text-decoration: none;
@@ -672,12 +677,13 @@ header {
   color: violet;
   display: block;
   position: absolute;
-  right: -25px;
+  right: -23px;
   padding: 5px 14px;
   border-radius: 50%;
   background-color: rgb(1, 9, 37);
   font-size: 30px;
   transform: rotate(180deg);
+  z-index: 20;
 }
 .filtros .menu {
   width: 100%;
@@ -775,6 +781,7 @@ header {
   background-color: rgb(1, 9, 37);
   font-size: 30px;
   transform: rotate(0deg);
+  z-index: 200;
 }
 .close .filtros_lista .active {
   padding: 5px 0;
@@ -1317,6 +1324,9 @@ footer .footer__content .enlaces__content {
   display: flex;
   justify-content: space-around;
 }
+footer .footer__content .enlaces__content a {
+  color: #cecece;
+}
 footer .footer__content .enlaces__content .redes__sociales {
   margin-top: 3px;
   letter-spacing: 9px;
@@ -1365,6 +1375,25 @@ footer .rigths__reserved {
 }
 footer .rigths__reserved .rigths {
   padding-left: 5px;
+}
+footer .rigths__osky {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  color: rgba(223, 223, 223, 0.8823529412);
+  margin-top: 5px;
+}
+footer .rigths__osky .my {
+  padding-left: 5px;
+}
+footer .rigths__osky .my a {
+  color: rgba(223, 223, 223, 0.8823529412);
+  transition: all 0.3s;
+}
+footer .rigths__osky .my a:hover {
+  color: #246b9b;
 }
 
 .resaltado {
@@ -1589,6 +1618,9 @@ footer .rigths__reserved .rigths {
   height: 100%;
 }
 #error__msj .error__msj--content .icon__msj .icon__wrong i {
+  padding: 10px 5px;
+  height: 100%;
+  width: 100%;
   color: rgb(255, 29, 29);
   margin-right: 10px;
 }
@@ -1599,6 +1631,7 @@ footer .rigths__reserved .rigths {
   transform: translateY(-20%);
 }
 #error__msj .error__msj--content .icon__msj .msj__error p {
+  text-align: bottom;
   height: 100%;
   font-size: 16px;
   color: #e7e7e7;
@@ -1622,15 +1655,38 @@ footer .rigths__reserved .rigths {
   background-color: #52249b;
 }
 
+@media screen and (max-width: 800px) {
+  .form__container {
+    width: 100%;
+  }
+  .form__container .form__content {
+    max-width: 90%;
+  }
+}
 @media screen and (max-width: 700px) {
-  #error__msj .error__msj--content .msj__error {
+  .form__container {
+    width: 100%;
+  }
+  .form__container .form__content {
+    max-width: 100%;
+  }
+  #error__msj .error__msj--content .msj__error p {
     text-align: center;
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    transform: translateY(10px);
   }
 }
 @media only screen and (max-width: 600px) {
+  .form__container {
+    width: 100%;
+  }
+  .form__container .form__content {
+    max-width: 100%;
+  }
+  .form__container .form__content #form__contacto {
+    width: 100%;
+  }
   .form__container .form__content #form__contacto .inputs__top {
     display: flex;
     flex-direction: column;
@@ -1641,17 +1697,29 @@ footer .rigths__reserved .rigths {
   #error__msj {
     position: relative;
   }
+  #error__msj .error__msj--content {
+    align-items: center;
+  }
   #error__msj .error__msj--content .msj__error {
     text-align: center;
     width: 100%;
     height: 100%;
     transform: translateY(0);
+    text-align: center;
   }
   #error__msj .error__msj--content #icon__x i {
     position: absolute;
     top: 5px;
     right: 10px;
     color: rgb(255, 255, 255);
+  }
+}
+@media screen and (max-width: 400px) {
+  #error__msj .error__msj--content {
+    padding: 0;
+  }
+  #error__msj .error__msj--content .msj__error {
+    padding-right: 10px;
   }
 }
 @keyframes aparecer {

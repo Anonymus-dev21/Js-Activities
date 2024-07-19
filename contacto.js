@@ -126,7 +126,8 @@ formulario.addEventListener("submit", (e) => {
 
         formulario.reset()
         Swal.fire({
-            title: "Formulario enviado exitosamente!",
+            title: "Mensaje enviado exitosamente!",
+            text: "En breve nos pondremos en contacto contigo!",
             icon: "success",
             showClass: {
                 popup: `
@@ -144,6 +145,11 @@ formulario.addEventListener("submit", (e) => {
             }
         });
     } else {
+        const x = document.querySelector("#icon__x")
+        x.addEventListener("click", () => {
+            containerError.style.display = "none"
+        })
         containerError.style.display = "flex"
+
     }
 })

@@ -589,6 +589,7 @@ header {
 
 
     .cards {
+        z-index: 10;
         max-width: 300px;
         min-height: 450px;
         color: #b1afaf;
@@ -599,6 +600,7 @@ header {
         animation: aparecer both;
         animation-timeline: view();
         animation-range: cover 2% cover 40%;
+        z-index: 10;
 
 
 
@@ -712,6 +714,7 @@ header {
     font-family: "Poppins";
     border-top-right-radius: 25px;
     border-bottom-right-radius: 15px;
+    z-index: 20;
 
 
     .top__menu {
@@ -729,20 +732,20 @@ header {
             width: 100%;
             text-align: center;
             display: flex;
-            justify-content: space-around;
+            justify-content: left;
             align-items: center;
             color: #cecece;
-
+            z-index:19;
             a {
                 text-decoration: none;
-
+                font-size: 15px;
                 color: #cecece;
 
                 .ico {
-                    margin: 5px;
+                    margin: 4px;
 
                     i {
-                        font-size: 25px;
+                        font-size: 23px;
                     }
                 }
 
@@ -760,12 +763,13 @@ header {
             color: violet;
             display: block;
             position: absolute;
-            right: -25px;
+            right: -23px;
             padding: 5px 14px;
             border-radius: 50%;
             background-color: rgb(1, 9, 37);
             font-size: 30px;
             transform: rotate(180deg);
+            z-index: 20;
         }
     }
 
@@ -879,6 +883,7 @@ header {
             background-color: rgb(1, 9, 37);
             font-size: 30px;
             transform: rotate(0deg);
+            z-index: 200;
         }
     }
 
@@ -1531,6 +1536,9 @@ footer {
             width: 100%;
             display: flex;
             justify-content: space-around;
+            a{
+                color: #cecece;
+            }
 
             .redes__sociales {
                 margin-top: 3px;
@@ -1592,6 +1600,28 @@ footer {
 
         .rigths {
 
+            padding-left: 5px;
+        }
+    }
+
+    .rigths__osky {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-size: 17px;
+        color: #dfdfdfe1;
+        margin-top: 5px;
+
+        .my {
+            a{
+                color: #dfdfdfe1;
+                transition: all .3s;
+            }
+            a:hover{
+
+                color: #246b9b;
+            }
             padding-left: 5px;
         }
     }
@@ -1861,6 +1891,9 @@ footer {
                 height: 100%;
 
                 i {
+                    padding: 10px 5px;
+                    height: 100%;
+                    width: 100%;
                     color: rgb(255, 29, 29);
                     margin-right: 10px;
                 }
@@ -1873,6 +1906,7 @@ footer {
                 transform: translateY(-20%);
 
                 p {
+                    text-align: bottom;
                     height: 100%;
                     font-size: 16px;
                     color: #e7e7e7;
@@ -1907,14 +1941,35 @@ footer {
     }
 }
 
+@media screen and (max-width:800px) {
+    .form__container {
+        width: 100%;
+
+        .form__content {
+            max-width: 90%;
+        }
+    }
+}
+
 @media screen and (max-width:700px) {
+    .form__container {
+        width: 100%;
+
+        .form__content {
+            max-width: 100%;
+        }
+    }
+
     #error__msj {
         .error__msj--content {
             .msj__error {
-                text-align: center;
-                width: 100%;
-                height: 100%;
-                transform: translateY(0);
+                p {
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    transform: translateY(10px);
+                }
+
             }
         }
     }
@@ -1923,10 +1978,14 @@ footer {
 
 @media only screen and (max-width:600px) {
     .form__container {
+        width: 100%;
 
         .form__content {
+            max-width: 100%;
+
 
             #form__contacto {
+                width: 100%;
 
                 .inputs__top {
                     display: flex;
@@ -1942,12 +2001,16 @@ footer {
 
     #error__msj {
         position: relative;
+
         .error__msj--content {
+            align-items: center;
+
             .msj__error {
                 text-align: center;
                 width: 100%;
                 height: 100%;
                 transform: translateY(0);
+                text-align: center;
             }
 
             #icon__x {
@@ -1957,8 +2020,23 @@ footer {
                     top: 5px;
                     right: 10px;
                     color: rgb(255, 255, 255);
-    
+
                 }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    #error__msj {
+
+        .error__msj--content {
+            padding: 0;
+
+            .msj__error {
+                padding-right: 10px;
+
             }
         }
     }
