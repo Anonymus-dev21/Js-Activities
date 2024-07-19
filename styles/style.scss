@@ -1476,7 +1476,7 @@ footer {
         color: #cecece;
         flex-direction: column;
         font-family: "Urbanist";
-        
+
         .enlaces__top {
             width: 50%;
             margin: 35px 0;
@@ -1544,7 +1544,7 @@ footer {
                     color: #246b9b;
                 }
             }
-            
+
         }
 
         .metodos_pago {
@@ -1580,7 +1580,8 @@ footer {
             }
         }
     }
-    .rigths__reserved{
+
+    .rigths__reserved {
         width: 100%;
         align-items: center;
         justify-content: center;
@@ -1588,8 +1589,9 @@ footer {
         font-size: 17px;
         color: #b9b9b9b2;
         margin-top: 50px;
-        .rigths{
-            
+
+        .rigths {
+
             padding-left: 5px;
         }
     }
@@ -1672,11 +1674,13 @@ footer {
         .footer__content {
             .enlaces__top {
                 width: 100%;
+
                 .enlaces {
                     width: 100%;
                     justify-content: space-between;
                     flex-wrap: wrap;
                     flex-direction: column;
+
                     a {
                         margin-right: 5px;
                         margin-bottom: 10px;
@@ -1689,44 +1693,277 @@ footer {
 
 
 // ===========================================================CONTACTOOOO================================================
-.form__container{
+.form__container {
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Poppins";
-    .form__content{
-        width: 85%;
+
+    .msj__error {
+        margin-top: 10px;
+    }
+
+    .form__content {
+        max-width: 60%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items:center;
-        .form__dsc{
+        align-items: center;
+        margin: 25px;
+
+        .form__dsc {
             color: #cecece;
+            font-size: 15px;
+
+            h1 {
+                color: white;
+            }
         }
-        form{
+
+        form {
             width: 100%;
-            .inputs__top{
+
+            .inputs__top {
                 display: flex;
+                justify-content: space-between;
                 width: 100%;
-                .input__box{
-                    width: 100%;
-                    input{
+                margin: 15px 0 5px;
+
+                .input__box {
+                    width: 50%;
+                    border-radius: 15px;
+
+                    input {
+
+                        border: solid 3px rgb(6, 23, 95);
+                        border-radius: 15px;
                         width: 100%;
+                        height: 45px;
+                        padding: 15px 15px;
+                        outline: none;
+                    }
+
+                    .incorrecto {
+
+                        border: solid red 1px;
+                        color: red;
+                    }
+
+                    .incorrecto::placeholder {
+                        color: red;
                     }
                 }
             }
-            .input__box{
+
+            .input__box {
                 width: 100%;
-                input, textarea{
+                border-radius: 15px;
+                margin: 10px 0 0 0;
+
+                input,
+                textarea {
                     width: 100%;
+                    border-radius: 15px;
+                    outline: none;
+                    border: solid 3px rgb(6, 23, 95);
+
+                }
+
+                input {
+                    height: 45px;
+                    padding: 15px;
+
+
+                }
+
+                .incorrecto {
+
+                    border: solid red 1px;
+                    color: red;
+                }
+
+                .incorrecto::placeholder {
+                    color: red;
+                }
+
+                textarea {
+                    padding: 10px;
+                    min-height: 150px;
+                }
+
+                #msj__error-area {
+                    margin-bottom: 25px;
                 }
             }
         }
     }
 }
 
+#msj__error-nombre {
+    width: 100%;
+    color: red;
+    font-weight: 200;
+    font-size: 9px;
+    display: none;
+}
+
+#msj__error-correo {
+    width: 100%;
+    color: red;
+    font-weight: 200;
+    font-size: 9px;
+    display: none;
+}
+
+#msj__error-telefono {
+    width: 100%;
+    color: red;
+    font-weight: 200;
+    font-size: 9px;
+    display: none;
+}
+
+#msj__error-area {
+    width: 100%;
+    color: red;
+    font-weight: 200;
+    font-size: 9px;
+    display: none;
+}
+
+// =========================================================MSJ ERROR===============================================
+#error__msj {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+
+    .error__msj--content {
+        width: 100%;
+        background-color: rgba(160, 2, 2, 0.699);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 25px;
+        border-radius: 10px;
+
+        .icon__msj {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .icon__wrong {
+                width: 50px;
+                height: 100%;
+
+                i {
+                    color: rgb(255, 29, 29);
+                    margin-right: 10px;
+                }
+            }
+
+            .msj__error {
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                transform: translateY(-20%);
+
+                p {
+                    height: 100%;
+                    font-size: 16px;
+                    color: #e7e7e7;
+                }
+            }
+        }
+
+        #icon__x {
+
+            i {
+                color: rgb(255, 255, 255);
+
+            }
+        }
+    }
+
+}
+
+.button__sumbit {
+    width: 100%;
+
+    .button {
+        border: none;
+        outline: none;
+        font-family: "Urbanist";
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        color: #cecece;
+        background-color: #52249b;
+    }
+}
+
+@media screen and (max-width:700px) {
+    #error__msj {
+        .error__msj--content {
+            .msj__error {
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                transform: translateY(0);
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width:600px) {
+    .form__container {
+
+        .form__content {
+
+            #form__contacto {
+
+                .inputs__top {
+                    display: flex;
+                    flex-direction: column;
+
+                    .input__box {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    #error__msj {
+        position: relative;
+        .error__msj--content {
+            .msj__error {
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                transform: translateY(0);
+            }
+
+            #icon__x {
+
+                i {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    color: rgb(255, 255, 255);
+    
+                }
+            }
+        }
+    }
+
+}
 
 @keyframes aparecer {
     from {

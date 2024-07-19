@@ -1447,36 +1447,213 @@ footer .rigths__reserved .rigths {
   justify-content: center;
   font-family: "Poppins";
 }
+.form__container .msj__error {
+  margin-top: 10px;
+}
 .form__container .form__content {
-  width: 85%;
+  max-width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 25px;
 }
 .form__container .form__content .form__dsc {
   color: #cecece;
+  font-size: 15px;
+}
+.form__container .form__content .form__dsc h1 {
+  color: white;
 }
 .form__container .form__content form {
   width: 100%;
 }
 .form__container .form__content form .inputs__top {
   display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin: 15px 0 5px;
 }
 .form__container .form__content form .inputs__top .input__box {
-  width: 100%;
+  width: 50%;
+  border-radius: 15px;
 }
 .form__container .form__content form .inputs__top .input__box input {
+  border: solid 3px rgb(6, 23, 95);
+  border-radius: 15px;
   width: 100%;
+  height: 45px;
+  padding: 15px 15px;
+  outline: none;
+}
+.form__container .form__content form .inputs__top .input__box .incorrecto {
+  border: solid red 1px;
+  color: red;
+}
+.form__container .form__content form .inputs__top .input__box .incorrecto::-moz-placeholder {
+  color: red;
+}
+.form__container .form__content form .inputs__top .input__box .incorrecto::placeholder {
+  color: red;
 }
 .form__container .form__content form .input__box {
   width: 100%;
+  border-radius: 15px;
+  margin: 10px 0 0 0;
 }
-.form__container .form__content form .input__box input, .form__container .form__content form .input__box textarea {
+.form__container .form__content form .input__box input,
+.form__container .form__content form .input__box textarea {
   width: 100%;
+  border-radius: 15px;
+  outline: none;
+  border: solid 3px rgb(6, 23, 95);
+}
+.form__container .form__content form .input__box input {
+  height: 45px;
+  padding: 15px;
+}
+.form__container .form__content form .input__box .incorrecto {
+  border: solid red 1px;
+  color: red;
+}
+.form__container .form__content form .input__box .incorrecto::-moz-placeholder {
+  color: red;
+}
+.form__container .form__content form .input__box .incorrecto::placeholder {
+  color: red;
+}
+.form__container .form__content form .input__box textarea {
+  padding: 10px;
+  min-height: 150px;
+}
+.form__container .form__content form .input__box #msj__error-area {
+  margin-bottom: 25px;
 }
 
+#msj__error-nombre {
+  width: 100%;
+  color: red;
+  font-weight: 200;
+  font-size: 9px;
+  display: none;
+}
+
+#msj__error-correo {
+  width: 100%;
+  color: red;
+  font-weight: 200;
+  font-size: 9px;
+  display: none;
+}
+
+#msj__error-telefono {
+  width: 100%;
+  color: red;
+  font-weight: 200;
+  font-size: 9px;
+  display: none;
+}
+
+#msj__error-area {
+  width: 100%;
+  color: red;
+  font-weight: 200;
+  font-size: 9px;
+  display: none;
+}
+
+#error__msj {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+#error__msj .error__msj--content {
+  width: 100%;
+  background-color: rgba(160, 2, 2, 0.699);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+#error__msj .error__msj--content .icon__msj {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#error__msj .error__msj--content .icon__msj .icon__wrong {
+  width: 50px;
+  height: 100%;
+}
+#error__msj .error__msj--content .icon__msj .icon__wrong i {
+  color: rgb(255, 29, 29);
+  margin-right: 10px;
+}
+#error__msj .error__msj--content .icon__msj .msj__error {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-20%);
+}
+#error__msj .error__msj--content .icon__msj .msj__error p {
+  height: 100%;
+  font-size: 16px;
+  color: #e7e7e7;
+}
+#error__msj .error__msj--content #icon__x i {
+  color: rgb(255, 255, 255);
+}
+
+.button__sumbit {
+  width: 100%;
+}
+.button__sumbit .button {
+  border: none;
+  outline: none;
+  font-family: "Urbanist";
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #cecece;
+  background-color: #52249b;
+}
+
+@media screen and (max-width: 700px) {
+  #error__msj .error__msj--content .msj__error {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .form__container .form__content #form__contacto .inputs__top {
+    display: flex;
+    flex-direction: column;
+  }
+  .form__container .form__content #form__contacto .inputs__top .input__box {
+    width: 100%;
+  }
+  #error__msj {
+    position: relative;
+  }
+  #error__msj .error__msj--content .msj__error {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+  }
+  #error__msj .error__msj--content #icon__x i {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: rgb(255, 255, 255);
+  }
+}
 @keyframes aparecer {
   from {
     opacity: 0;
